@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Local data and MRI scans
+data/
+datasets/
+*.dcm
+*.nii
+*.nii.gz
+
+# Model checkpoints and weights
+checkpoints/
+models/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Experiment outputs
+logs/
+outputs/
+wandb/
+
+# Environment variables and credentials
+.env
+.env.*
+!.env.example
+
+# IDE settings
+.idea/
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,31 @@
+# Data processing
+numpy
+pandas
+scipy
+
+# Machine learning and evaluation
+scikit-learn
+
+# Deep learning
+torch
+torchvision
+
+# MRI and medical imaging
+pydicom
+nibabel
+
+# Radiology report label extraction
+transformers
+accelerate
+
+# Visualization
+matplotlib
+seaborn
+
+# Progress bars and configuration
+tqdm
+PyYAML
+
+# Jupyter notebooks
+jupyter
+ipykernel
