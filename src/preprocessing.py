@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import pydicom
 from skimage import exposure
+import os
 
 
 def load_slice(path):
