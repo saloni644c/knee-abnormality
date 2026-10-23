@@ -11,23 +11,32 @@ def load_slice(path):
 
 
 def build_reference(paths, max_slices=50):
-    """Pool pixel values from TRAINING slices only, used as the histogram target."""
+    """Pool pixel values from training slices only."""
     pixels = []
     for p in paths[:max_slices]:
         pixels.append(load_slice(p).ravel())
+
     return np.concatenate(pixels)
 
 
 def preprocess_slice(path, reference, size=224):
-    """Histogram-match to the reference, resize, then min-max normalize to [0, 1]."""
+    """Histogram-match, resize, and normalize a DICOM slice."""
     img = load_slice(path)
-    img = exposure.match_histograms(img, reference, channel_axis=None)
+
+    img = exposure.match_histograms(
+        img,
+        reference.reshape(-1),
+        channel_axis=None
+    )
+
     img = cv2.resize(img, (size, size), interpolation=cv2.INTER_AREA)
+
     lo, hi = img.min(), img.max()
     if hi > lo:
         img = (img - lo) / (hi - lo)
     else:
         img = np.zeros_like(img)
+
     return img.astype(np.float32)
 
 
