@@ -1,4 +1,4 @@
-```python
+
 import pandas as pd
 from sklearn.metrics import precision_score, recall_score, f1_score
 
@@ -148,4 +148,3 @@ def evaluate_predictions(batch_records, gold_df):
     print("Total wrong:", injury_summary["Wrong"].sum())
 
     return scores_df, summary_df, injury_summary
-```
