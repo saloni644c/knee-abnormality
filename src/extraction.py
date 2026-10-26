@@ -1,4 +1,4 @@
-```python
+
 import json
 import time
 from datetime import datetime, timedelta
@@ -339,4 +339,3 @@ def extract_non_gold_labels(
     print("Error log:", errors_path)
 
     return saved_df
-```
