@@ -1,4 +1,4 @@
-```python
+
 from .config import FINDINGS
 
 
@@ -35,4 +35,3 @@ def to_binary(f, entry):
         return 1
 
     return int(RANK[sev] >= RANK[MIN_SEVERITY[f]])
-```
