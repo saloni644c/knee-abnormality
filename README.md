@@ -1,8 +1,8 @@
-# Knee MRI Abnormality Detection from Radiology Reports
+# Knee MRI Abnormality Detection
 
-Weakly supervised, multi-label detection of 12 knee findings on 3D knee MRI. Training labels are extracted from free-text radiology reports with an LLM, then validated against a small set of doctor-verified cases.
+A machine learning research project focused on detecting 12 abnormalities in knee MRI examinations. The project investigates automated analysis of 3D knee MRI volumes, using radiology reports and doctor-verified labels to develop and evaluate abnormality detection methods.
 
-> **Status:** work in progress. Label extraction (Phase 1) is under active development. Not for clinical use.
+> **Status:** Work in progress. Initial experiments on radiology report-based label extraction have been completed. MRI preprocessing and image-based model development are planned. Not for clinical use.
 
 ## Problem
 
@@ -18,39 +18,55 @@ Manual labels exist for only a small fraction of exams, but every exam has a rep
 
 ## Method
 
-This project follows the weak supervision framing of Das et al. (2025), who use an instruction-tuned LLM to label unlabelled reports, then validate those labels against a manually labelled set.
+The project is organized into two main stages, progressing from radiology report-based label extraction to image-based abnormality detection.
 
-**Label extraction (Phase 1).** An instruction-tuned LLM (currently MedGemma-4B) scores each report for each finding. For every finding it returns probabilities for `present`, `absent`, and `not_mentioned`, plus a verbatim evidence quote in the original language, so every label can be audited. Raw probabilities are saved. Hard 0/1 labels are derived only for evaluation.
+**Stage 1 — Radiology Report-Based Label Extraction**
 
-**Validation (Phase 2).** Extracted labels are compared with the gold cases per finding and per language, using AUC, precision, recall, F1, and Cohen's kappa, with an error analysis. Gold coverage is uneven across languages, so pooled scores are not reported alone.
+Use large language models (currently MedGemma-4B) to extract the 12 target abnormalities from free-text radiology reports. The extracted labels are evaluated against the available doctor-verified cases using per-finding metrics, including AUC, precision, recall, F1-score, and Cohen's kappa. Error analysis is used to assess label quality and identify limitations.
 
-**Imaging (Phases 3 to 5).** 3D MRI preprocessing and an MRNet-style multi-label CNN (Bien et al., 2018), evaluated per finding. This is an MRNet-style model, not a replication, so it should not be compared directly with the paper's numbers.
+**Stage 2 — MRI-Based Abnormality Detection**
 
-Prompt versions and experiment outcomes are logged in `docs/experiments.md`.
+Use the extracted labels to train a multi-label convolutional neural network on 3D knee MRI volumes. This stage includes MRI preprocessing, dataset preparation, model development, and evaluation. An MRNet-style architecture serves as a reference for the image-based model.
+
+Experiment versions, prompts, evaluation results, and methodological decisions are documented in `docs/experiments.md` and the `experiments/` directory.
 
 ## Results so far
 
-| Finding | Gold cases | AUC (p_present) | Accuracy (p > 0.5) | Note |
-|---|---|---|---|---|
-| ACL | 58 | 0.944 | 0.862 | Prompt refined on these cases, so optimistic |
+### Stage 1: Radiology Report-Based Label Extraction
 
-Meniscus, OA, and other findings are not yet validated.
+An initial MedGemma-4B experiment evaluated the extraction of 12 knee abnormalities against 58 doctor-verified MRI studies.
 
-## Repository structure
+The experiment achieved a macro AUC of **0.784 across measurable findings**. Performance varied by finding, with stronger results for ACL extraction and Baker's cyst detection, while osteoarthritis findings showed limitations in threshold-based classification.
 
-All logic and prompts live in `src/`. Notebooks only call the scripts. Some scripts are still being written, so check the status above before running them.
+Detailed per-finding metrics are available in [`experiments/medgemma_v1/metrics_per_finding.csv`](experiments/medgemma_v1/metrics_per_finding.csv).
+
+These results provide an initial benchmark for improving report-based label extraction. The evaluation set is small, and the results should be interpreted as preliminary.
+
+### Stage 2: MRI-Based Abnormality Detection
+
+CNN training and image-based evaluation results will be added as this stage progresses.
 
 ## Progress
 
-| Phase | Description | Status |
-|---|---|---|
-| 1 | LLM weak-label extraction | In progress |
-| 2 | Validation against gold labels | Planned |
-| 3 | 3D MRI preprocessing | Planned |
-| 4 | Multi-label classifier | Planned |
-| 5 | Per-finding evaluation | Planned |
+The project is organized into two main stages:
 
-Results will be added here as each phase is completed.
+| Stage | Description | Status |
+|---|---|---|
+| 1 | Radiology report-based label extraction and validation | Initial MedGemma baseline evaluated; further improvements ongoing |
+| 2 | MRI preprocessing, CNN training, and image-based evaluation | Planned / in development |
+
+Progress and results will be documented as the project develops.
+
+## Repository Structure
+
+The repository separates reusable implementation code, exploratory notebooks, experiment-specific results, and project documentation.
+
+- `src/` — Project scripts, reusable functions, and implementation code.
+- `notebooks/` — Notebooks for experimentation, analysis, and evaluation.
+- `experiments/` — Experiment-specific results and documentation, organized by approach and version.
+- `docs/` — Project methodology, experiment history, and development notes.
+- `tests/` — Tests for implemented functionality.
+
 
 ## Reproduce
 
@@ -81,4 +97,4 @@ The data belongs to the RSNA Knee Abnormality Detection competition and is not i
 
 ## Author
 
-Saloni Chourasiya, MSc Quantum Engineering, University of Innsbruck.
+Saloni Chourasiya 

@@ -1,4 +1,4 @@
-```python
+
 import json
 import re
 
@@ -44,4 +44,3 @@ def parse_output(raw):
             bad += 1
 
     return clean, bad, True
-```

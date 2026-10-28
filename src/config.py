@@ -1,4 +1,4 @@
-```python
+
 # Configuration for MedGemma report-label extraction
 
 # Model configuration
@@ -59,4 +59,3 @@ BATCH_MAX_NEW_TOKENS = MAX_NEW_TOKENS
 
 # Binary decision configuration
 UNCERTAIN_IS_POSITIVE = False
-```

@@ -1,4 +1,4 @@
-```python
+
 import torch
 
 from .prompt import build_messages
@@ -57,4 +57,3 @@ def generate_batch(
         outputs[:, input_length:],
         skip_special_tokens=True,
     )
-```
