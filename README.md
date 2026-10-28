@@ -28,8 +28,6 @@ Use large language models (currently MedGemma-4B) to extract the 12 target abnor
 
 Use the extracted labels to train a multi-label convolutional neural network on 3D knee MRI volumes. This stage includes MRI preprocessing, dataset preparation, model development, and evaluation. An MRNet-style architecture serves as a reference for the image-based model.
 
-The objective is to develop a model that predicts the 12 target abnormalities directly from MRI volumes, without requiring radiology reports at inference time.
-
 Experiment versions, prompts, evaluation results, and methodological decisions are documented in `docs/experiments.md` and the `experiments/` directory.
 
 ## Results so far
@@ -48,6 +46,17 @@ These results provide an initial benchmark for improving report-based label extr
 
 CNN training and image-based evaluation results will be added as this stage progresses.
 
+## Progress
+
+The project is organized into two main stages:
+
+| Stage | Description | Status |
+|---|---|---|
+| 1 | Radiology report-based label extraction and validation | Initial MedGemma baseline evaluated; further improvements ongoing |
+| 2 | MRI preprocessing, CNN training, and image-based evaluation | Planned / in development |
+
+Progress and results will be documented as the project develops.
+
 ## Repository Structure
 
 The repository separates reusable implementation code, exploratory notebooks, experiment-specific results, and project documentation.
@@ -58,18 +67,6 @@ The repository separates reusable implementation code, exploratory notebooks, ex
 - `docs/` — Project methodology, experiment history, and development notes.
 - `tests/` — Tests for implemented functionality.
 
-## Progress
-
-The project is organized into two main stages:
-
-| Stage | Description | Status |
-|---|---|---|
-| 1 | Radiology report-based label extraction and validation | Initial MedGemma baseline evaluated; further improvements ongoing |
-| 2 | MRI preprocessing, CNN training, and image-based evaluation | Planned / in development |
-
-Stage 1 establishes a baseline for extracting abnormalities from radiology reports. Stage 2 will use the resulting labels to train and evaluate an image-based model.
-
-Progress and results will be documented as the project develops.
 
 ## Reproduce
 
