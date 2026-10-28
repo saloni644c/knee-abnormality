@@ -30,8 +30,6 @@ Use the extracted labels to train a multi-label convolutional neural network on 
 
 The objective is to develop a model that predicts the 12 target abnormalities directly from MRI volumes, without requiring radiology reports at inference time.
 
-Doctor-verified labels provide the reference for evaluating report-derived labels and, where appropriate, assessing image-based model performance. Report-derived labels are treated as potentially noisy training signals rather than ground truth.
-
 Experiment versions, prompts, evaluation results, and methodological decisions are documented in `docs/experiments.md` and the `experiments/` directory.
 
 ## Results so far
@@ -59,8 +57,6 @@ The repository separates reusable implementation code, exploratory notebooks, ex
 - `experiments/` — Experiment-specific results and documentation, organized by approach and version.
 - `docs/` — Project methodology, experiment history, and development notes.
 - `tests/` — Tests for implemented functionality.
-
-The project is under active development. Not all components are complete, and execution instructions will be added as the pipeline becomes reproducible.
 
 ## Progress
 
@@ -104,4 +100,4 @@ The data belongs to the RSNA Knee Abnormality Detection competition and is not i
 
 ## Author
 
-Saloni Chourasiya, MSc Quantum Engineering, University of Innsbruck.
+Saloni Chourasiya 
