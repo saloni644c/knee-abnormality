@@ -64,8 +64,6 @@ The repository separates reusable implementation code, exploratory notebooks, ex
 - `src/` — Project scripts, reusable functions, and implementation code.
 - `notebooks/` — Notebooks for experimentation, analysis, and evaluation.
 - `experiments/` — Experiment-specific results and documentation, organized by approach and version.
-- `docs/` — Project methodology, experiment history, and development notes.
-- `tests/` — Tests for implemented functionality.
 
 
 ## Reproduce
