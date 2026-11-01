@@ -1,4 +1,4 @@
-# %% [4] Prompt -- model READS, your code DECIDES (thresholds live in cell 6, not here)
+
 SYSTEM_PROMPT = """You are a radiology report reader for knee MRI reports.
 Reports may be in any language. Read them in their original language; do not translate.
 For each of the 12 findings below, report what the radiologist wrote. Do not apply your own
