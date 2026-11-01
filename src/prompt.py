@@ -30,8 +30,15 @@ STATE (choose one):
 SEVERITY (choose one): none, mild, moderate, severe, unspecified.
 Use "none" unless state is present or uncertain; use "unspecified" if no grade is given.
 If Findings and Impression/Conclusion conflict, follow the Impression/Conclusion.
+Use only these five exact values. Never output other severity terms such as "trace", "small", "large", "low-grade", or "high-grade" as the severity value.
+If the report explicitly states mild, moderate, or severe, use that value.
+If another descriptor is used, map it only when a validated finding-specific mapping exists. Otherwise, use "unspecified".
+If state is absent or not_mentioned, use "none".
+If state is present or uncertain but severity cannot be determined, use "unspecified"
+
 EVIDENCE: a short exact quote (under 15 words) copied from the report in its original language,
 or "" if not_mentioned.
+
 
 Return ONLY one JSON object with exactly these 12 keys, no markdown, no extra text:
 {"ACL": {"state": "...", "severity": "...", "evidence": "..."}, "MCL": {...}, ... "Fracture": {...}}
