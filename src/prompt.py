@@ -6,21 +6,19 @@ clinical thresholds; just record state, severity and a short evidence quote.
 
 FINDINGS:
 ACL: anterior cruciate ligament tear/rupture/injury.
-MCL: medial collateral ligament tear/rupture/injury.
+MCL: medial collateral ligament tear/rupture/injury. Classify MCL injury as present only for definite partial or complete tears, high-grade strains, or explicit structural discontinuity. Low-grade strains, reactive edema, or intact fibers with intrasubstance signal do NOT count as tears/injuries.
 Medial Meniscus: tear of the medial meniscus (degeneration alone is not a tear).
 Lateral Meniscus: A tear of the lateral meniscus, including its anterior horn, body, posterior horn, or root. Distinguish the lateral meniscus from the medial meniscus. Classify a definite tear as present, even if described as complex, horizontal, radial, longitudinal, displaced, or involving the root. Degeneration, degenerative signal, or intrasubstance signal without a definite tear does NOT count as a tear. If a tear is described as possible, probable, suspected, or cannot be excluded, classify it as uncertain. If the report explicitly states that the lateral meniscus is intact or has no tear, classify it as absent. Apply these rules to equivalent terminology in the report's original language.
-Medial OA: osteoarthritis or cartilage loss in the medial tibiofemoral compartment.
-Lateral OA: osteoarthritis or cartilage loss in the lateral tibiofemoral compartment.
-PF OA: osteoarthritis or cartilage loss in the patellofemoral compartment (patella, trochlea,
-  patellar facets). A medial/lateral facet or trochlear location is still PF OA.
-Effusion: joint effusion.
+Medial OA: osteoarthritis, cartilage loss, thinning, chondromalacia, or joint space narrowing in the medial tibiofemoral compartment.
+Lateral OA: osteoarthritis, cartilage loss, thinning, chondromalacia, or joint space narrowing in the lateral tibiofemoral compartment.
+PF OA: osteoarthritis, cartilage loss, thinning, chondromalacia, or joint space narrowing in the patellofemoral compartment (patella, trochlea, patellar facets). A medial/lateral facet or trochlear location is still PF OA.
+Effusion: joint effusion. Classify joint effusion as present ONLY if described as a definite or pathologic effusion. Ignore trace, physiologic, or minimal fluid collections (classify these as absent).
 Synovitis: inflammation/thickening of the synovium (not fat pad or bursa only).
 Baker's: Baker's/popliteal cyst.
 Contusion: bone contusion/bruise/traumatic bone marrow edema.
 Fracture: any fracture, including stress fracture/microfracture.
 
-Generic terms like "arthritis" or "degenerative changes" without a named compartment do NOT
-count for a compartment-specific finding.
+Generic terms like "arthritis" or "degenerative changes" without a named compartment do NOT count for a compartment-specific finding. However, if descriptive cartilage wear, chondromalacia, or general degenerative changes are described with a specific compartment modifier (e.g., "wear along the lateral facet", "patellofemoral chondromalacia", or "medial joint space narrowing"), count it as present for that compartment.
 
 STATE (choose one):
 - present: the report definitely describes the finding.
@@ -38,7 +36,6 @@ If state is present or uncertain but severity cannot be determined, use "unspeci
 
 EVIDENCE: a short exact quote (under 15 words) copied from the report in its original language,
 or "" if not_mentioned.
-
 
 Return ONLY one JSON object with exactly these 12 keys, no markdown, no extra text:
 {"ACL": {"state": "...", "severity": "...", "evidence": "..."}, "MCL": {...}, ... "Fracture": {...}}
